@@ -2,28 +2,212 @@
   --purple: #6c63ff;
   --dark-purple: #504ac5;
   --gray: #757575;
-  --medium-gray: #5a5a5a;
   --dark-gray: #3f3d56;
   --font: "Roboto", sans-serif;
-  font-size: 16px;
 }
 
 body {
   font-family: var(--font);
 }
 
-header {
-  margin-top: 40px;
-  padding: 0 60px;
-}
-
 a {
-  color: var(--gray);
   text-decoration: none;
-  font-size: 1em;
-  margin: 15px;
+  list-style: none;
+  outline: none;
 }
 
+header {
+  display: inline;
+  margin: 16px;
+}
+
+/* Estilização dos links da barra de navegação */
+
+.topnav a {
+  float: left;
+  display: block;
+  color: var(--dark-gray);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+div.topnav-right {
+  float: right;
+}
+
+.topnav a#logo {
+  float: left;
+  display: block;
+  color: var(--purple);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+  font-weight: 800;
+  font-size: 2em;
+}
+
+/* Esconde os links que devem abrir e fechar a topnav em telas pequenas */
+.topnav .icon {
+  display: none;
+}
+
+/* Dropdown container - necessários para posicionar os conteudos do dropdown */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Estiliza o botão dropdown para caber dentro da topnav */
+.dropdown .dropbtn {
+  font-size: 1em;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Estiliza o conteúdo dropdown (hidden = "escondido" por padrão) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.topnav a:hover,
+.dropdown:hover .dropbtn {
+  color: gray;
+}
+
+/* Mostra o menu dropdown quando o usuário move o mouse sobre o botão dropdown */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Quando a largura da tela é menor que 600 pixels, esconde os links, exceto o primeiro ("DevChallenge"). 
+  Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a,
+  .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+
+    color: var(--gray);
+    cursor: pointer;
+    font-size: 1.5em;
+  }
+}
+
+/* A classe "responsive" é adicionada para o topnav com JavaScript quando o usuário clica no icone.
+ Esta classe faz o topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+  .topnav.responsive * {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+  .topnav.responsive a#logo {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {
+    float: none;
+  }
+  .topnav.responsive .dropdown-content {
+    position: relative;
+  }
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  div.conteudos {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+
+  div.textos {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1#titulo {
+    font-size: 3em;
+  }
+
+  p#slogan {
+    font-size: 1.5em;
+  }
+
+  div#botao {
+    margin-bottom: 0;
+  }
+}
+
+/* FIM DA ESTILIZAÇÃO DO NAVBAR */
+
+.conteudos {
+  margin-top: 64px;
+  display: flex;
+  align-items: center;
+}
+
+#imagem {
+  z-index: 1;
+  width: 60vw;
+  min-width: 300px;
+  min-height: 300px;
+}
+
+.textos {
+  width: 40vw;
+  margin-left: 96px;
+}
+
+#titulo,
+#slogan,
+#botao {
+  padding: 24px 0;
+}
+
+#titulo {
+  z-index: 1;
+  color: var(--dark-gray);
+  font-size: 4em;
+  font-weight: 900;
+}
+
+#slogan {
+  color: var(--gray);
+  font-size: 2em;
+}
+
+/* Botão "Start Now" */
 button {
   background-color: var(--purple);
   color: white;
@@ -43,84 +227,4 @@ button {
 button:hover {
   background-color: var(--dark-purple);
   transition: 0.5s;
-}
-
-section {
-  margin-top: 50px;
-}
-
-img {
-  display: block;
-  width: 500px;
-  height: 500px;
-}
-
-.navigation a {
-  font-size: 1.5em;
-}
-
-.navigation__links a:hover {
-  color: var(--medium-gray);
-}
-
-.navigation__logo a {
-  color: var(--purple);
-  font-weight: 800;
-  font-size: 2em;
-}
-
-.navigation {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.navigation > div {
-  display: flex;
-  flex-direction: row;
-}
-
-.navigation__links .navigation__link {
-  display: flex;
-  flex-direction: row;
-}
-
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.content__image {
-  z-index: 0;
-  width: 60vw;
-}
-
-.content__items {
-  z-index: 1;
-  width: 40vw;
-}
-
-.item {
-  margin-left: 60px;
-  padding: 24px 0;
-}
-
-.item__titulo {
-  color: var(--dark-gray);
-  font-size: 4em;
-  font-weight: 900;
-}
-
-.item__texto {
-  color: var(--gray);
-  font-size: 2em;
-}
-
-@media screen and (max-width: 600px) {
-  .content div {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
 }

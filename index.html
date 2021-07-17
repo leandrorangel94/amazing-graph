@@ -4,38 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!--Reset CSS e estilo da pagina-->
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/style.css" />
-
+    <!--Importação da fonte Roboto-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-
+    <!--Script para dropdown button funcionar-->
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
     <title>Amazing Graph</title>
   </head>
   <body>
-    <header class="navigation">
-      <div class="navigation__logo">
-        <a href="#">DevChallenge</a>
-      </div>
-      <div class="navigation__links">
-        <a href="#" class="navigation__link">Home</a>
-        <a href="#" class="navigation__link">Features</a>
-        <a href="#" class="navigation__link">Contact</a>
+    <!--Barra de navegação no topo-->
+    <header>
+      <div class="topnav" id="myTopnav">
+        <a href="#" id="logo">DevChallenge</a>
+        <div class="topnav-right">
+          <a href="#">Home</a>
+          <a href="#">Features</a>
+          <a href="#">Contact</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
       </div>
     </header>
-    <section class="content">
-      <div class="content__items item">
-        <h1 class="item item__titulo">Create amazing graphics</h1>
-        <p class="item item__texto">Colaborate and create beautiful graphics with your team</p>
-        <div class="item item__botao">
+    <!--Conteudo abaixo da barra de navegação-->
+    <div class="conteudos">
+      <div class="textos">
+        <h1 id="titulo">Create amazing graphics</h1>
+        <p id="slogan">Colaborate and create beautiful graphics with your team</p>
+        <div id="botao">
           <button>Start now</button>
         </div>
       </div>
-      <div>
-        <img class="content__image" src="assets/graph.svg" alt="Time" />
+      <div class="img">
+        <img id="imagem" src="assets/graph.svg" alt="Grafico" />
       </div>
-    </section>
+    </div>
   </body>
 </html>
